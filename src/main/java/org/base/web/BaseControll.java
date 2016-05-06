@@ -25,7 +25,7 @@ import com.alibaba.fastjson.JSONObject;
  * Title:BaseControll
  * </p>
  * <p>
- * description:controller层基础抽象类
+ * description:controller层基础抽象类 任何controller必须基础该类
  * </p>
  * <p>
  * company:esay_use
