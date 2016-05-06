@@ -38,7 +38,10 @@
 		                if (error != undefined && error == true) {
 		                	alert(data.reason); 
 		                }
-						console.log(data);
+		                if(data.success){
+		                	alert("登录成功")
+		                }
+						//console.log(data);
 					}
 				});
 			});
