@@ -6,12 +6,41 @@
 <link href="../resource/bootstrap-3.3.5-dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-	<input type="button" class="btn" value="test" id="button01">
+
+	<form class="form">
+		userName:<input type="text" id="userName"><br>
+		password:<input type="password" id="password"><br>
+		<input type="button" class="btn" value="test" id="button01">
+	</form>
 	<script type="text/javascript" src="../resource/js/jquery-1.12.3.min.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
 			$("#button01").click(function(){
 				console.log("button01");
+				var obj = new Object();
+				obj.userName = $("#userName").val();
+				obj.password = $("#password").val();
+				console.log(obj.userName);
+				console.log(obj.password);
+				//获取信息提交请求
+				$.ajax({
+					url : '/base/base/login/userLogin',
+					contentType : "application/json",
+					type : 'get',
+					dataType : 'json',
+					data:{
+						userName:obj.userName,
+						password:obj.password
+					},
+					success:function(data, textStatus){
+		                //判断是否有异常
+		                var error = data.error;
+		                if (error != undefined && error == true) {
+		                	alert(data.reason); 
+		                }
+						console.log(data);
+					}
+				});
 			});
 		});
 	

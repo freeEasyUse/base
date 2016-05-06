@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.base.exception.BaseException;
 import org.base.util.webUtil.DateEditor;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -21,25 +22,18 @@ import com.alibaba.fastjson.JSONObject;
 
 /**
  * 
- * <p>
- * Title:BaseControll
- * </p>
- * <p>
- * description:controller�������� �κ�controller��������
- * </p>
- * <p>
- * company:esay_use
- * </p>
- * 
+ * <p>Title:BaseController</p>
+ * <p>description:controller层基础类</p>
+ * <p>company:easyuse</p>
  * @author gel
- * @date 2016��5��5��
- * 
+ * @date 2016年5月6日
+ *
  */
 public abstract class BaseController {
 	protected final Logger logger = LogManager.getLogger(this.getClass());
 
 	/**
-	 * ���JSON�ַ�
+	 * 锟斤拷锟絁SON锟街凤拷
 	 * 
 	 * @param response
 	 * @param obj
@@ -64,7 +58,7 @@ public abstract class BaseController {
 	}
 
 	/**
-	 * ͳһ�쳣����
+	 * 统一锟届常锟斤拷锟斤拷
 	 * 
 	 * @param request
 	 * @param e
@@ -73,44 +67,47 @@ public abstract class BaseController {
 	 */
 	@ExceptionHandler
 	public void exception(HttpServletRequest request, HttpServletResponse response, Exception e) {
-		outPrintJson(response, e);
+		BaseException ex = new BaseException();
+		ex.setError(true);
+		ex.setReason(e.getMessage());
+		outPrintJson(response, ex);
 	}
 
 	/**
-	 * �Զ����
+	 * 锟皆讹拷锟斤拷锟�
 	 * 
 	 * @param binder
 	 */
 	@InitBinder
 	public void initBinder(WebDataBinder binder) {
-		// ���ڵ�ת��
+		// 锟斤拷锟节碉拷转锟斤拷
 		binder.registerCustomEditor(Date.class, new DateEditor());
 	}
 
 	/**
-	 * ֱ�ӽ���Ҫ����ݷ��ظ�ǰ��
+	 * 直锟接斤拷锟斤拷要锟斤拷锟斤拷莘锟斤拷馗锟角帮拷锟�
 	 * 
 	 * @param response
 	 * @param map
 	 */
 	public void returnSuccess(HttpServletResponse response, Map<String, Object> map) {
 		JSONObject json = new JSONObject();
-		// �ж��û���û���Լ���map
+		// 锟叫讹拷锟矫伙拷锟斤拷没锟斤拷锟皆硷拷锟斤拷map
 		if (map != null && map.keySet().size() > 0) {
-			// ѭ��map���ŵ�jsonObject��
+			// 循锟斤拷map锟斤拷锟脚碉拷jsonObject锟斤拷
 			Iterator<String> keys = map.keySet().iterator();
 			while (keys.hasNext()) {
 				String key = keys.next();
 				json.put(key, map.get(key));
 			}
 		}
-		// ����success����
+		// 锟斤拷锟斤拷success锟斤拷锟斤拷
 		json.put("success", true);
 		outPrintJson(response, json.toString());
 	}
 
 	/**
-	 * ����value��session��
+	 * 锟斤拷锟斤拷value锟斤拷session锟斤拷
 	 * 
 	 * @param key
 	 * @param value
@@ -120,7 +117,7 @@ public abstract class BaseController {
 	}
 
 	/**
-	 * ��session�л�ȡֵ
+	 * 锟斤拷session锟叫伙拷取值
 	 * 
 	 * @param key
 	 * @param request
