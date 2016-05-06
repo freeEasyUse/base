@@ -33,8 +33,7 @@ public abstract class BaseController {
 	protected final Logger logger = LogManager.getLogger(this.getClass());
 
 	/**
-	 * 锟斤拷锟絁SON锟街凤拷
-	 * 
+	 * 输出json串
 	 * @param response
 	 * @param obj
 	 */
@@ -58,12 +57,10 @@ public abstract class BaseController {
 	}
 
 	/**
-	 * 统一锟届常锟斤拷锟斤拷
-	 * 
+	 * 统一异常处理
 	 * @param request
+	 * @param response
 	 * @param e
-	 * @return
-	 * @return
 	 */
 	@ExceptionHandler
 	public void exception(HttpServletRequest request, HttpServletResponse response, Exception e) {
@@ -73,52 +70,49 @@ public abstract class BaseController {
 		outPrintJson(response, ex);
 	}
 
+
 	/**
-	 * 锟皆讹拷锟斤拷锟�
-	 * 
+	 * 日期类型的转换
 	 * @param binder
 	 */
 	@InitBinder
 	public void initBinder(WebDataBinder binder) {
-		// 锟斤拷锟节碉拷转锟斤拷
 		binder.registerCustomEditor(Date.class, new DateEditor());
 	}
 
+
 	/**
-	 * 直锟接斤拷锟斤拷要锟斤拷锟斤拷莘锟斤拷馗锟角帮拷锟�
-	 * 
+	 * 返回处理结果
 	 * @param response
 	 * @param map
 	 */
 	public void returnSuccess(HttpServletResponse response, Map<String, Object> map) {
 		JSONObject json = new JSONObject();
-		// 锟叫讹拷锟矫伙拷锟斤拷没锟斤拷锟皆硷拷锟斤拷map
 		if (map != null && map.keySet().size() > 0) {
-			// 循锟斤拷map锟斤拷锟脚碉拷jsonObject锟斤拷
 			Iterator<String> keys = map.keySet().iterator();
 			while (keys.hasNext()) {
 				String key = keys.next();
 				json.put(key, map.get(key));
 			}
 		}
-		// 锟斤拷锟斤拷success锟斤拷锟斤拷
 		json.put("success", true);
 		outPrintJson(response, json.toString());
 	}
 
+
 	/**
-	 * 锟斤拷锟斤拷value锟斤拷session锟斤拷
-	 * 
+	 * 设置session
 	 * @param key
 	 * @param value
+	 * @param request
 	 */
 	public void setValueToSession(String key, Object value, HttpServletRequest request) {
 		request.getSession().setAttribute(key, value);
 	}
 
+
 	/**
-	 * 锟斤拷session锟叫伙拷取值
-	 * 
+	 * 获取session内容
 	 * @param key
 	 * @param request
 	 * @return

@@ -42,9 +42,27 @@ public class LoginController extends BaseController {
 		else{
 			throw new Exception("用户名/密码错误 请重试");
 		}
-		
-		
 	}
 	
+	/**
+	 * 退出登录
+	 * @param request
+	 * @param response
+	 * @throws Exception 
+	 */
+	@RequestMapping(value="/exit",method={RequestMethod.GET,RequestMethod.POST})
+	public void userlogout(HttpServletRequest request,HttpServletResponse response) throws Exception{
+		//判断当前用户信息是否在session中存在
+		Object userInfo = super.getValueFromSession(WebConstant.USER_SESSION, request);
+		//用户信息不存在 无需退出
+		if(userInfo==null){
+			throw new Exception("没有用户信息无法退出");
+		}
+		//存在清空当前对应session
+		else{
+			super.setValueToSession(WebConstant.USER_SESSION, null, request);
+			super.returnSuccess(response, null);
+		}
+	}
 	
 }
