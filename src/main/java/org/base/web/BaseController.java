@@ -35,7 +35,7 @@ import com.alibaba.fastjson.JSONObject;
  * @date 2016��5��5��
  * 
  */
-public abstract class BaseControll {
+public abstract class BaseController {
 	protected final Logger logger = LogManager.getLogger(this.getClass());
 
 	/**
