@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.gl.util.webUtil.DateEditor;
+import org.base.util.webUtil.DateEditor;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.InitBinder;
@@ -25,21 +25,21 @@ import com.alibaba.fastjson.JSONObject;
  * Title:BaseControll
  * </p>
  * <p>
- * description:controller²ã»ù´¡³éÏóÀà ÈÎºÎcontroller±ØÐë»ù´¡¸ÃÀà
+ * description:controllerï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Îºï¿½controllerï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
  * </p>
  * <p>
  * company:esay_use
  * </p>
  * 
  * @author gel
- * @date 2016Äê5ÔÂ5ÈÕ
+ * @date 2016ï¿½ï¿½5ï¿½ï¿½5ï¿½ï¿½
  * 
  */
 public abstract class BaseControll {
 	protected final Logger logger = LogManager.getLogger(this.getClass());
 
 	/**
-	 * Êä³öJSON×Ö·û´®
+	 * ï¿½ï¿½ï¿½JSONï¿½Ö·ï¿½
 	 * 
 	 * @param response
 	 * @param obj
@@ -64,7 +64,7 @@ public abstract class BaseControll {
 	}
 
 	/**
-	 * Í³Ò»Òì³£´¦Àí
+	 * Í³Ò»ï¿½ì³£ï¿½ï¿½ï¿½ï¿½
 	 * 
 	 * @param request
 	 * @param e
@@ -77,40 +77,40 @@ public abstract class BaseControll {
 	}
 
 	/**
-	 * ×Ô¶¨Òå°ó¶¨
+	 * ï¿½Ô¶ï¿½ï¿½ï¿½ï¿½
 	 * 
 	 * @param binder
 	 */
 	@InitBinder
 	public void initBinder(WebDataBinder binder) {
-		// ÈÕÆÚµÄ×ª»»
+		// ï¿½ï¿½ï¿½Úµï¿½×ªï¿½ï¿½
 		binder.registerCustomEditor(Date.class, new DateEditor());
 	}
 
 	/**
-	 * Ö±½Ó½«ÐèÒªµÄÊý¾Ý·µ»Ø¸øÇ°¶Ë
+	 * Ö±ï¿½Ó½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½Ý·ï¿½ï¿½Ø¸ï¿½Ç°ï¿½ï¿½
 	 * 
 	 * @param response
 	 * @param map
 	 */
 	public void returnSuccess(HttpServletResponse response, Map<String, Object> map) {
 		JSONObject json = new JSONObject();
-		// ÅÐ¶ÏÓÃ»§ÓÐÃ»ÓÐ×Ô¼ºµÄmap
+		// ï¿½Ð¶ï¿½ï¿½Ã»ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½Ô¼ï¿½ï¿½ï¿½map
 		if (map != null && map.keySet().size() > 0) {
-			// Ñ­»·map£¬·Åµ½jsonObjectÖÐ
+			// Ñ­ï¿½ï¿½mapï¿½ï¿½ï¿½Åµï¿½jsonObjectï¿½ï¿½
 			Iterator<String> keys = map.keySet().iterator();
 			while (keys.hasNext()) {
 				String key = keys.next();
 				json.put(key, map.get(key));
 			}
 		}
-		// Ôö¼ÓsuccessÊôÐÔ
+		// ï¿½ï¿½ï¿½ï¿½successï¿½ï¿½ï¿½ï¿½
 		json.put("success", true);
 		outPrintJson(response, json.toString());
 	}
 
 	/**
-	 * ÉèÖÃvalueµ½sessionÖÐ
+	 * ï¿½ï¿½ï¿½ï¿½valueï¿½ï¿½sessionï¿½ï¿½
 	 * 
 	 * @param key
 	 * @param value
@@ -120,7 +120,7 @@ public abstract class BaseControll {
 	}
 
 	/**
-	 * ´ÓsessionÖÐ»ñÈ¡Öµ
+	 * ï¿½ï¿½sessionï¿½Ð»ï¿½È¡Öµ
 	 * 
 	 * @param key
 	 * @param request

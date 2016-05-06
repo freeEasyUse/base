@@ -1,4 +1,4 @@
-package org.gl.util.webUtil;
+package org.base.util.webUtil;
 
 import java.beans.PropertyEditorSupport;
 import java.text.SimpleDateFormat;
@@ -12,7 +12,7 @@ public class DateEditor extends PropertyEditorSupport {
 
 	@Override
 	public void setAsText(String text) {
-		//声明日期转化格式
+		//锟斤拷锟斤拷锟斤拷锟斤拷转锟斤拷锟斤拷式
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		SimpleDateFormat dateTimeFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		String value = text.trim();
@@ -24,13 +24,13 @@ public class DateEditor extends PropertyEditorSupport {
 				} else if (value.matches("^\\d{4}-\\d{1,2}-\\d{1,2} {1}\\d{1,2}:\\d{1,2}:\\d{1,2}$")) {
 					date = dateTimeFormat.parse(value);
 				} else {
-					throw new IllegalArgumentException("日期格式错误：" + value);
+					throw new IllegalArgumentException("锟斤拷锟节革拷式锟斤拷锟斤拷" + value);
 				}
 			} catch (Exception e) {
-				throw new IllegalArgumentException("日期格式转化失败：" + value);
+				throw new IllegalArgumentException("锟斤拷锟节革拷式转锟斤拷失锟杰ｏ拷" + value);
 			}
 		}
-		// 设置日期
+		// 锟斤拷锟斤拷锟斤拷锟斤拷
 		setValue(date);
 	}
 

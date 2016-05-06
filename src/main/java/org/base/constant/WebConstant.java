@@ -1,4 +1,4 @@
-package org.gl.constant;
+package org.base.constant;
 
 public class WebConstant {
 
