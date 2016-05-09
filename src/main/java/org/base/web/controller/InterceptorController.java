@@ -4,10 +4,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.base.web.BaseController;
+import org.base.web.vo.BaseVo;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * 
@@ -22,8 +23,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping("/interceptor")
 public class InterceptorController extends BaseController {
 
-	@RequestMapping(value = "/view",method = {RequestMethod.GET,RequestMethod.GET})
-	public void interceptorView(HttpServletRequest request,HttpServletResponse response,@RequestParam("value") String value){
+	@RequestMapping(value = "/view",method = {RequestMethod.POST})
+	public void interceptorView(HttpServletRequest request,HttpServletResponse response,@RequestBody BaseVo vo){
+		System.out.println(vo);
 		super.returnSuccess(response, null);
 	}
 	

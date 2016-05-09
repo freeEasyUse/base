@@ -11,16 +11,21 @@
 	<script type="text/javascript">
 		$(document).ready(function(){
 			$("#interceptor").click(function(){
+				var vo = new Object();
+				vo.oprator = "admin";
+				vo.opratorTime = "2015-05-09";
+				
 				$.ajax({
 					url : '/base/interceptor/view',
 					contentType : "application/json",
-					type : 'get',
+					type : 'post',
 					dataType : 'json',
-					data:{
-						value:"test"
-					},
+					data:JSON.stringify(vo),
 					success:function(data, textStatus){
 						console.log(data);
+					},
+					error:function(XMLHttpRequest, textStatus, errorThrown){
+						alert("error");
 					}
 				});				
 			});

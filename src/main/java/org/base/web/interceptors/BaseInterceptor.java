@@ -3,6 +3,7 @@ package org.base.web.interceptors;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.base.constant.WebConstant;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 /**
@@ -17,7 +18,11 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 public class BaseInterceptor extends HandlerInterceptorAdapter {
 	@Override
 	public boolean preHandle(HttpServletRequest req,HttpServletResponse res, Object handler){
-		System.out.println("this is interceptor");
-		return false;
+		//获取session
+		Object obj = req.getSession().getAttribute(WebConstant.USER_SESSION);
+		if(obj==null){
+			return false;
+		}
+		return true;
 	}
 }
