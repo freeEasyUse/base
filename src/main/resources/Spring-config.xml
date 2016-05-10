@@ -6,21 +6,18 @@
                         http://www.springframework.org/schema/context
                         http://www.springframework.org/schema/context/spring-context-4.0.xsd">
     <!-- 引入属性配置文件 -->
-<!-- 	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="locations">
 			<list>
-				<value>classpath:config/mq.properties</value>
-				<value>classpath:config/jdbc.properties</value>
-				<value>classpath:config/redis.properties</value>
-				<value>classpath:config/dubbo.properties</value>
+				<value>classpath:config/mongodb.properties</value>
 			</list>
 		</property>
-	</bean> -->
+	</bean>
 	<!-- 扫描注解 -->
 	<context:component-scan base-package="org.base">
 		<!-- 过滤controll层 -->
 		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />
 	</context:component-scan>
 	<!-- 引入SPRING配置文件 -->
-	<!-- <import resource="spring/Spring-*.xml"/> -->
+	<import resource="spring/spring-*.xml"/>
 </beans>

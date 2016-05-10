@@ -8,14 +8,14 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 /**
  * 
  * <p>Title:BaseTest</p>
- * <p>description:²âÊÔ»ù´¡Àà</p>
- * <p>company:org.easyuse</p>
+ * <p>description:</p>
+ * <p>company:</p>
  * @author gel
- * @date 2016Äê5ÔÂ6ÈÕ
+ * @date 2016å¹´5æœˆ10æ—¥
  *
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "classpath:spring-config.xml" })
+@ContextConfiguration(locations = {"classpath:spring-config.xml" })
 public class BaseTest {
 
 	@Before
