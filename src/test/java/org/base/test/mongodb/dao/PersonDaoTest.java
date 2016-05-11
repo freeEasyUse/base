@@ -1,4 +1,4 @@
-package org.base.test.mongodb.dap;
+package org.base.test.mongodb.dao;
 
 import org.base.mongodb.dao.PersonMongoDao;
 import org.base.mongodb.entity.Person;
