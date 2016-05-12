@@ -5,12 +5,12 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
 import org.apache.commons.beanutils.BeanUtils;
+import org.base.util.common.CommonUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
-import org.springframework.stereotype.Component;
 
 import com.mongodb.CommandResult;
 
@@ -162,8 +162,8 @@ public class BaseMongoDao<T> {
 				e.printStackTrace();
 			}
 			if (value != null) {
-				Criteria c = new Criteria(fieldName);
-				c.is(value);
+				value = CommonUtil.changeStrByType((String) value, f.getType().getName());
+				Criteria c = new Criteria(fieldName).is(value);
 				query.addCriteria(c);
 			}
 		}
