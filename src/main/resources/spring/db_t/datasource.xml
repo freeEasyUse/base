@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/jdbc
+       http://www.springframework.org/schema/jdbc/spring-jdbc.xsd
+       http://www.springframework.org/schema/tx
+       http://www.springframework.org/schema/tx/spring-tx.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd">
+
+	 <bean id="localDataSourcet" class="org.apache.commons.dbcp2.BasicDataSource">
+	    <property name="driverClassName" value="${local.driverClassName}" />
+        <property name="url"     value="${local.urlt}" />  
+        <property name="username" value="${local.userName}" />  
+        <property name="password" value="${local.password}" />  
+        <property name="initialSize" value="${local.initialPoolSize}" />
+		<property name="minIdle" value="${local.minPoolSize}" />
+		<property name="maxTotal" value="${local.maxPoolSize}" />
+		<property name="maxWaitMillis" value="30000" />	
+		<property name="maxOpenPreparedStatements" value="100"/>
+		<property name="timeBetweenEvictionRunsMillis" value="60000" />
+		<property name="minEvictableIdleTimeMillis" value="300000" />
+		<property name="validationQuery" value="select 1 from dual" />
+		<property name="testWhileIdle" value="true" />
+		<property name="testOnBorrow" value="false" />
+		<property name="testOnReturn" value="false" />
+		<property name="removeAbandonedOnMaintenance" value="true" />
+		<property name="removeAbandonedOnBorrow" value="true" />
+		<property name="removeAbandonedTimeout" value="300" />
+		<property name="logAbandoned" value="true" />
+    </bean>  
+</beans>

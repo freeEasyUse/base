@@ -13,16 +13,16 @@
     </plugin>
 
     <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                    connectionURL="jdbc:mysql://localhost:3306/stockstorage"
+                    connectionURL="jdbc:mysql://localhost:3306/test"
                     userId="root"
                     password="root">
     </jdbcConnection>
 
-    <javaModelGenerator targetPackage="org.base.dao.entity" targetProject="E:\workspace\base\src\main\java"/>
+    <javaModelGenerator targetPackage="org.base.dao.entity_t" targetProject="E:\workspace\base\src\main\java"/>
 
-    <sqlMapGenerator targetPackage="org.base.dao.mapper"  targetProject="E:\workspace\base\src\main\java"/>
+    <sqlMapGenerator targetPackage="org.base.dao.mapper_t"  targetProject="E:\workspace\base\src\main\java"/>
 
-    <javaClientGenerator targetPackage="org.base.dao" targetProject="E:\workspace\base\src\main\java" type="XMLMAPPER" />
+    <javaClientGenerator targetPackage="org.base.dao_t" targetProject="E:\workspace\base\src\main\java" type="XMLMAPPER" />
 
     <table tableName="%" >
       <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
