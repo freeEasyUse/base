@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.base.dao.StockPriceMapper">
+  <resultMap id="BaseResultMap" type="org.base.dao.entity.StockPrice">
+    <!--
+      WARNING - @mbggenerated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="stock_code" jdbcType="VARCHAR" property="stockCode" />
+    <result column="open_price" jdbcType="REAL" property="openPrice" />
+    <result column="close_price" jdbcType="REAL" property="closePrice" />
+    <result column="trade_day" jdbcType="DATE" property="tradeDay" />
+  </resultMap>
+</mapper>

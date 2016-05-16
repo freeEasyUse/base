@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.base.dao.StockDetailsMapper">
+  <resultMap id="BaseResultMap" type="org.base.dao.entity.StockDetails">
+    <!--
+      WARNING - @mbggenerated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="stock_code" jdbcType="VARCHAR" property="stockCode" />
+    <result column="trade_time" jdbcType="TIMESTAMP" property="tradeTime" />
+    <result column="trade_price" jdbcType="REAL" property="tradePrice" />
+    <result column="trade_count" jdbcType="INTEGER" property="tradeCount" />
+    <result column="trade_nature" jdbcType="VARCHAR" property="tradeNature" />
+    <result column="price_float" jdbcType="REAL" property="priceFloat" />
+  </resultMap>
+</mapper>
