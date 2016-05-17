@@ -9,4 +9,10 @@
     <result column="name" property="name" jdbcType="VARCHAR" />
     <result column="age" property="age" jdbcType="INTEGER" />
   </resultMap>
+  
+  <update id="updatePersonAgeByName">
+  	update person set age = #{age} where name = #{name}
+  </update>
+  
+  
 </mapper>

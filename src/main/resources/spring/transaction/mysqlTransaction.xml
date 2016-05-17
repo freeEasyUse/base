@@ -9,15 +9,19 @@
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.2.xsd"
 	default-lazy-init="false">
 
+	<tx:annotation-driven transaction-manager="transactionManager"/>
+
 	<!-- 本地数据的事务 -->
 	<bean id="localTransactionManager"
 		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource" ref="localDataSource" />
+		<qualifier value="mysql1"/>
 	</bean>
 
 
 	<bean id="localTransactionManagert"
 		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource" ref="localDataSourcet" />
+		<qualifier value="mysql2"/>
 	</bean>
 </beans>
