@@ -21,6 +21,7 @@
 
 	<bean id="localSqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="localDataSource" />
+		<!-- <property name="dataSource" ref="dataSourceA" /> -->
 		<property name="mapperLocations">
 			<array>
 				<value>classpath:org/base/dao/mapper/*.xml</value>
@@ -28,17 +29,9 @@
 		</property>
 		<property name="typeAliasesPackage" value="org.base.dao.entity" />
 		<!-- 分页插件 -->
-<!-- 		<property name="plugins">
-			<array>
-				<bean class="com.github.pagehelper.PageHelper">
-					<property name="properties">
-						<value>
-							dialect=mysql
-						</value>
-					</property>
-				</bean>
-			</array>
-		</property> -->
+		<!-- <property name="plugins"> <array> <bean class="com.github.pagehelper.PageHelper"> 
+			<property name="properties"> <value> dialect=mysql </value> </property> </bean> 
+			</array> </property> -->
 	</bean>
 
 

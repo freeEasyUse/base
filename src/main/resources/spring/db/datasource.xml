@@ -14,7 +14,7 @@
        http://www.springframework.org/schema/context
        http://www.springframework.org/schema/context/spring-context.xsd">
 
-	 <bean name="localDataSource" class="org.apache.commons.dbcp2.BasicDataSource">
+	 <!-- <bean name="localDataSource" class="org.apache.commons.dbcp2.BasicDataSource">
 	    <property name="driverClassName" value="${local.driverClassName}" />
         <property name="url"     value="${local.url}" />  
         <property name="username" value="${local.userName}" />  
@@ -34,5 +34,42 @@
 		<property name="removeAbandonedOnBorrow" value="true" />
 		<property name="removeAbandonedTimeout" value="300" />
 		<property name="logAbandoned" value="true" />
-    </bean>  
+    </bean> --> 
+    
+    
+     <bean id="abstractXADataSource" class="com.atomikos.jdbc.nonxa.AtomikosNonXADataSourceBean" init-method="init"
+          destroy-method="close" abstract="true">
+        <property name="xaDataSourceClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="poolSize" value="10" />
+        <property name="minPoolSize" value="10"/>
+        <property name="maxPoolSize" value="30"/>
+        <property name="borrowConnectionTimeout" value="60"/>
+        <property name="reapTimeout" value="20"/>
+        <!-- 最大空闲时间 -->
+        <property name="maxIdleTime" value="60"/>
+        <property name="maintenanceInterval" value="60"/>
+        <property name="loginTimeout" value="60"/>
+        <property name="testQuery">
+            <value>select 1</value>
+        </property>
+    </bean>
+
+   <bean id="localDataSource" class="com.atomikos.jdbc.nonxa.AtomikosNonXADataSourceBean">
+        <property name="uniqueResourceName" value="dataSourceA" />
+        <property name="driverClassName">
+			<value>com.mysql.jdbc.Driver</value>
+		</property>
+        <property name="url">
+			<value>${database.urlA}</value>
+		</property>
+		<property name="user">
+			<value>${database.username}</value>
+		</property>
+		<property name="password">
+			<value>${database.password}</value>
+		</property>
+    </bean>
+    
+    
+    
 </beans>

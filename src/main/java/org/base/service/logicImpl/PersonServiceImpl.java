@@ -46,7 +46,6 @@ public class PersonServiceImpl extends AbastractLogicService<Person> implements 
 	public boolean addTwoPerson(Person person) throws Exception {
 		super.insert(person);
 		throwException();
-		super.insert(person);
 		return true;
 	}
 	

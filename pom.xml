@@ -216,11 +216,8 @@
 		</dependency>
 
 
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<version>5.1.26</version>
-		</dependency>
+		<!-- <dependency> <groupId>mysql</groupId> <artifactId>mysql-connector-java</artifactId> 
+			<version>5.1.26</version> </dependency> -->
 
 		<dependency>
 			<groupId>org.mybatis</groupId>
@@ -238,7 +235,33 @@
 		</dependency>
 
 
+		<!-- <dependency> <groupId>com.atomikos</groupId> <artifactId>transactions</artifactId> 
+			<version>4.0.3</version> </dependency> <dependency> <groupId>com.atomikos</groupId> 
+			<artifactId>transactions-jta</artifactId> <version>4.0.3</version> </dependency> 
+			<dependency> <groupId>com.atomikos</groupId> <artifactId>transactions</artifactId> 
+			<version>4.0.3</version> </dependency> <dependency> <groupId>com.atomikos</groupId> 
+			<artifactId>transactions-jdbc</artifactId> <version>4.0.3</version> </dependency> 
+			<dependency> <groupId>com.atomikos</groupId> <artifactId>transactions-jdbc-deprecated</artifactId> 
+			<version>3.8.0</version> </dependency> -->
 
+		<dependency>
+			<groupId>com.atomikos</groupId>
+			<artifactId>transactions-essentials-all</artifactId>
+			<version>3.6.4</version>
+			<type>pom</type>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.transaction</groupId>
+			<artifactId>jta</artifactId>
+			<version>1.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.29</version>
+		</dependency>
 
 	</dependencies>
 

@@ -5,8 +5,9 @@
                         http://www.springframework.org/schema/beans/spring-beans-4.0.xsd  
                         http://www.springframework.org/schema/context
                         http://www.springframework.org/schema/context/spring-context-4.0.xsd">
-    <!-- 引入属性配置文件 -->
-	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+	<!-- 引入属性配置文件 -->
+	<bean
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="locations">
 			<list>
 				<value>classpath:config/mongodb.properties</value>
@@ -17,17 +18,20 @@
 	<!-- 扫描注解 -->
 	<context:component-scan base-package="org.base">
 		<!-- 过滤controll层 -->
-		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />
+		<context:exclude-filter type="annotation"
+			expression="org.springframework.stereotype.Controller" />
 	</context:component-scan>
 	<!-- 引入SPRING配置文件 -->
-	<import resource="spring/spring-mongodb.xml"/>
+	<import resource="spring/spring-mongodb.xml" />
+
 	<!-- 数据库1 -->
-	<import resource="spring/db/datasource.xml"/>
-	<import resource="spring/db/mybatis-spring.xml"/>
-	
+	<import resource="spring/db/datasource.xml" />
+	<import resource="spring/db/mybatis-spring.xml" />
+
 	<!-- 数据库2 -->
-	<import resource="spring/db_t/datasource.xml"/>
-	<import resource="spring/db_t/mybatis-spring.xml"/>
+	<import resource="spring/db_t/datasource.xml" />
+	<import resource="spring/db_t/mybatis-spring.xml" />
 	<!-- 事物配置 -->
-	<import resource="spring/transaction/mysqlTransaction.xml"/>
+	<import resource="spring/transaction/mysqlTransaction.xml" />
+	<import resource="spring/transaction/distributedTransaction.xml" />
 </beans>

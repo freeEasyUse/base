@@ -14,7 +14,7 @@
        http://www.springframework.org/schema/context
        http://www.springframework.org/schema/context/spring-context.xsd">
 
-	 <bean id="localDataSourcet" class="org.apache.commons.dbcp2.BasicDataSource">
+	<!--  <bean id="localDataSourcet" class="org.apache.commons.dbcp2.BasicDataSource">
 	    <property name="driverClassName" value="${local.driverClassName}" />
         <property name="url"     value="${local.urlt}" />  
         <property name="username" value="${local.userName}" />  
@@ -34,5 +34,23 @@
 		<property name="removeAbandonedOnBorrow" value="true" />
 		<property name="removeAbandonedTimeout" value="300" />
 		<property name="logAbandoned" value="true" />
-    </bean>  
+    </bean>  --> 
+    
+    
+    <bean id="localDataSourcet" class="com.atomikos.jdbc.nonxa.AtomikosNonXADataSourceBean">
+        <!-- value只要两个数据源不同就行，随便取名 -->
+        <property name="uniqueResourceName" value="dataSourceB" />
+       <property name="driverClassName">
+			<value>com.mysql.jdbc.Driver</value>
+		</property>
+        <property name="url">
+			<value>${database.urlB}</value>
+		</property>
+		<property name="user">
+			<value>${database.username}</value>
+		</property>
+		<property name="password">
+			<value>${database.password}</value>
+		</property>
+    </bean>
 </beans>
