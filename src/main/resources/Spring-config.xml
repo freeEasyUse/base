@@ -31,7 +31,7 @@
 	<!-- 数据库2 -->
 	<import resource="spring/db_t/datasource.xml" />
 	<import resource="spring/db_t/mybatis-spring.xml" />
-	<!-- 事物配置 -->
+	<!-- 事务配置-->
 	<import resource="spring/transaction/mysqlTransaction.xml" />
 	<import resource="spring/transaction/distributedTransaction.xml" />
 </beans>
