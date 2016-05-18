@@ -29,7 +29,7 @@
 		</property>
 		<property name="typeAliasesPackage" value="org.base.dao.entity" />
 		<!-- 分页插件 -->
-<!-- 		<property name="plugins">
+		<property name="plugins">
 			<array>
 				<bean class="com.github.pagehelper.PageHelper">
 					<property name="properties">
@@ -39,7 +39,7 @@
 					</property>
 				</bean>
 			</array>
-		</property> -->
+		</property>
 	</bean>
 
 
