@@ -13,6 +13,7 @@
 				<value>classpath:config/mongodb.properties</value>
 				<value>classpath:config/jdbc.properties</value>
 				<value>classpath:config/mq.properties</value>
+				<value>classpath:config/redis.properties</value>
 			</list>
 		</property>
 	</bean>
@@ -38,4 +39,5 @@
 	
 	<!-- active mq -->
 	<import resource="spring/spring-activemq.xml"/>
+	<!-- redis -->
 </beans>
