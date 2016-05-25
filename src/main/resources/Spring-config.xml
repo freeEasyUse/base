@@ -12,6 +12,7 @@
 			<list>
 				<value>classpath:config/mongodb.properties</value>
 				<value>classpath:config/jdbc.properties</value>
+				<value>classpath:config/mq.properties</value>
 			</list>
 		</property>
 	</bean>
@@ -34,4 +35,7 @@
 	<!-- 事务配置-->
 	<import resource="spring/transaction/mysqlTransaction.xml" />
 	<import resource="spring/transaction/distributedTransaction.xml" />
+	
+	<!-- active mq -->
+	<import resource="spring/spring-activemq.xml"/>
 </beans>
