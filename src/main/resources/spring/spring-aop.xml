@@ -1,0 +1,18 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd 
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context-4.0.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd">
+
+	<!-- 对@AspectJ切面的bean创建代理 -->
+	<!-- <aop:aspectj-autoproxy /> -->
+	<aop:config>
+		<aop:aspect ref="sayHello">
+			<aop:before method="beforeSayHello" pointcut="execution(* *.sayHello(..))" />
+			<aop:after method="afterSayHello" pointcut="execution(* *.sayHello(..))" />
+		</aop:aspect>
+	</aop:config>
+</beans>

@@ -20,7 +20,7 @@ public class BaseTest {
 
 	@Before
 	public void beforeTest(){
-		System.out.println("before");
+		System.out.println("junit before");
 	}
 	
 	
