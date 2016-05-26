@@ -11,3 +11,4 @@ redis
 zookeeper
 spring aop
 定时任务
+自定义注解
