@@ -14,6 +14,7 @@
 				<value>classpath:config/jdbc.properties</value>
 				<value>classpath:config/mq.properties</value>
 				<value>classpath:config/redis.properties</value>
+				<value>classpath:config/zookeeper.properties</value>
 			</list>
 		</property>
 	</bean>
@@ -40,4 +41,5 @@
 	<!-- active mq -->
 	<import resource="spring/spring-activemq.xml"/>
 	<!-- redis -->
+	<import resource="spring/spring-redis.xml"/>
 </beans>

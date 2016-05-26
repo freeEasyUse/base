@@ -1,7 +1,10 @@
 package org.base.util.common;
-import java.lang.Integer;
-import java.lang.Double;
-import java.lang.Float;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
 /**
  * 
@@ -47,5 +50,33 @@ public class CommonUtil {
 	}
 	
 	
+	/**
+	 * 执行多线程工具类 没有返回值
+	 * @param runnables 实现runnable接口的
+	 */
+	public static void execRunnable(Runnable ...runnables){
+		//获取executorService
+		ExecutorService exectorPool = Executors.newFixedThreadPool(runnables.length);
+		for(Runnable runnable:runnables){
+			exectorPool.execute(runnable);
+		}
+		exectorPool.shutdown();
+	}
 	
+	/**
+	 * 执行带有返回值的多线程工具类
+	 * @param futures
+	 * @param callables
+	 */
+	@SafeVarargs
+	public static List<Future<Object>> execCallable(Callable<Object> ...callables){
+		List<Future<Object>> futures = new ArrayList<Future<Object>>();
+		//获取executorService
+		ExecutorService exectorPool = Executors.newFixedThreadPool(callables.length);
+		for(Callable<Object> callable:callables){
+			Future<Object> future = exectorPool.submit(callable);
+			futures.add(future);
+		}
+		return futures;
+	}
 }

@@ -6,7 +6,8 @@
 		<property name="BACKUP_HOME">backup</property>
 		<property name="SERVER_NAME">base</property>
 		<property name="EVERY_FILE_SIZE">5M</property><!-- 日志切割的最小单位 -->
-		<property name="OUTPUT_LOG_LEVEL">DEBUG</property><!-- 日志输出级别 -->
+		<!-- <property name="OUTPUT_LOG_LEVEL">DEBUG</property> --><!-- 日志输出级别 -->
+		<property name="OUTPUT_LOG_LEVEL">ERROR</property><!-- 日志输出级别 -->
 	</properties>
 	<appenders>
 		<Console name="Console" target="SYSTEM_OUT">
@@ -52,16 +53,17 @@
 	</appenders>
 
 	<loggers>
-		<logger name="org.slf4j" level="INFO" />
-		<logger name="com.atomikos" level="WARN" />
-		<logger name="org.springframework" level="INFO" />
-		<logger name="org.apache.zookeeper" level="WARN" />
+		<logger name="org.slf4j" level="ERROR" />
+		<logger name="com.atomikos" level="ERROR" />
+		<logger name="org.springframework" level="ERROR" />
+		<logger name="org.apache.zookeeper" level="ERROR" />
 		<logger name="org.springframework.web" level="${OUTPUT_LOG_LEVEL}" />
 		<logger name="org.ibase4j" level="${OUTPUT_LOG_LEVEL}" additivity="false">  
 			<appender-ref ref="Console" />
             <appender-ref ref="ProductLog" />
         </logger>
-		<root level="DEBUG">
+		<!-- <root level="DEBUG"> -->
+		<root level="ERROR">
 			<appender-ref ref="Console" />
 			<appender-ref ref="RollingFile" />
 			<appender-ref ref="RollingFileError" />
