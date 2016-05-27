@@ -9,6 +9,7 @@ import org.mybatis.spring.SqlSessionFactoryBean;
 
 import com.atomikos.jdbc.SimpleDataSourceBean;
 
+@SuppressWarnings("all")
 public class MySqlSqlSessionFactoryBean extends SqlSessionFactoryBean {
 
 	private SimpleDataSourceBean simpleDataSourceBean;

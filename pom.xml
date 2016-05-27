@@ -67,6 +67,18 @@
 			<artifactId>spring-core</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aspects</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-web</artifactId>
@@ -212,25 +224,18 @@
 			<groupId>org.mybatis</groupId>
 			<artifactId>mybatis</artifactId>
 			<version>3.3.1</version>
-			<optional>true</optional>
 		</dependency>
-
-
-
 
 		<dependency>
 			<groupId>org.mybatis</groupId>
 			<artifactId>mybatis-spring</artifactId>
 			<version>1.2.4</version>
-			<optional>true</optional>
 		</dependency>
 		<!-- Mybatis Generator -->
 		<dependency>
 			<groupId>org.mybatis.generator</groupId>
 			<artifactId>mybatis-generator-core</artifactId>
 			<version>1.3.2</version>
-			<scope>compile</scope>
-			<optional>true</optional>
 		</dependency>
 
 		<!-- 分布式 -->
@@ -306,14 +311,26 @@
 		<dependency>
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjrt</artifactId>
-			<version>1.8.9</version>
+			<version>1.6.12</version>
 		</dependency>
-
 		<dependency>
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjweaver</artifactId>
-			<version>1.8.9</version>
+			<version>1.6.12</version>
+			<!-- <version>1.8.9</version> -->
+			<!-- <scope>runtime</scope> -->
 		</dependency>
+
+		<!-- quartz -->
+		<dependency>
+			<groupId>org.quartz-scheduler</groupId>
+			<artifactId>quartz</artifactId>
+			<version>2.1.1</version>
+		</dependency>
+
+
+
+
 
 	</dependencies>
 
@@ -321,6 +338,8 @@
 	<build>
 		<plugins>
 			<plugin>
+
+
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.1</version>
@@ -328,7 +347,14 @@
 					<source>1.7</source>
 					<target>1.7</target>
 					<encoding>utf8</encoding>
+					<compilerArgs>
+						<arg>-Xlint:unchecked</arg>
+						<arg>-Xlint:deprecation </arg>
+					</compilerArgs>
 				</configuration>
+
+
+
 			</plugin>
 		</plugins>
 	</build>
