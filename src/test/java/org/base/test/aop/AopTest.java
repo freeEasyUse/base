@@ -25,4 +25,18 @@ public class AopTest extends BaseTest {
 		logicService.sayHello();
 	}
 	
+	
+	@Test
+	public void testAopWithArgs() throws Exception{
+		logicService.sayHelloWithContent("核心处理逻辑");
+	}
+	
+	/**
+	 * 带有异常的处理
+	 * @throws Exception
+	 */
+	@Test
+	public void testAopWithArgsException() throws Exception{
+		logicService.sayHelloWithContent("hello world");
+	}
 }

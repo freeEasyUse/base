@@ -13,4 +13,6 @@ public interface LogicService {
 
 	void sayHello();
 	
+	String sayHelloWithContent(String content) throws Exception;
+	
 }

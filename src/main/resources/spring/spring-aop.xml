@@ -8,11 +8,11 @@
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd">
 
 	<!-- 对@AspectJ切面的bean创建代理 -->
-	<!-- <aop:aspectj-autoproxy /> -->
-	<aop:config>
+	<aop:aspectj-autoproxy/>
+	<!-- <aop:config>
 		<aop:aspect ref="sayHello">
 			<aop:before method="beforeSayHello" pointcut="execution(* *.sayHello(..))" />
 			<aop:after method="afterSayHello" pointcut="execution(* *.sayHello(..))" />
 		</aop:aspect>
-	</aop:config>
+	</aop:config> -->
 </beans>
