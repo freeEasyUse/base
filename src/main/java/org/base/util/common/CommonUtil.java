@@ -1,10 +1,19 @@
 package org.base.util.common;
+import java.beans.PropertyDescriptor;
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
+
+import org.springframework.beans.BeanUtils;
+import org.springframework.util.ReflectionUtils;
+import org.springframework.util.StringUtils;
 
 /**
  * 
@@ -78,5 +87,28 @@ public class CommonUtil {
 			futures.add(future);
 		}
 		return futures;
+	}
+	
+	/**
+	 * 根据给定的map 设置bean中对应的属性值
+	 * @param obj
+	 * @param props
+	 */
+	public static void setBeanProp(Object obj,Map<String, Object> props){
+		for(String p:props.keySet()){
+			PropertyDescriptor[] properdes = BeanUtils.getPropertyDescriptors(obj.getClass());
+			for(PropertyDescriptor proper:properdes){
+				if(StringUtils.endsWithIgnoreCase(proper.getName(), p)){
+					Method m = proper.getWriteMethod();
+					try {
+						m.invoke(obj, props.get(p));
+					} catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+			}
+			
+		}
 	}
 }

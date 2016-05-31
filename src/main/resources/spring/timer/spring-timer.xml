@@ -17,7 +17,7 @@ http://www.springframework.org/schema/jdbc/spring-jdbc-4.0.xsd
 	<!-- 开启这个配置，spring才能识别@Scheduled注解 -->
 	<task:annotation-driven scheduler="qbScheduler" mode="proxy"/>
 	<task:scheduler id="qbScheduler" pool-size="10"/>
-<!-- 	
+	
 	<bean id="springJobSchedulerFactoryBean" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
-	</bean> -->
+	</bean>
 </beans>
