@@ -1,12 +1,12 @@
 package org.base.timer.quartz;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 import java.util.ResourceBundle;
 
 import org.base.util.common.CommonUtil;
+import org.base.util.common.DateUtil;
 import org.quartz.Trigger;
+import org.quartz.impl.triggers.SimpleTriggerImpl;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +21,7 @@ import org.springframework.stereotype.Component;
 
 import com.alibaba.fastjson.JSON;
 
-//@Component
+@Component
 public class InitTimerConfig implements InitializingBean,ApplicationContextAware {
 
 	
@@ -32,6 +32,42 @@ public class InitTimerConfig implements InitializingBean,ApplicationContextAware
 	
 	@Override
 	public void afterPropertiesSet() throws Exception {
+		//加载定时任务设置文件
+		ResourceBundle timerProperties = ResourceBundle.getBundle("config/time/jobDetail");
+		Trigger[] triggers = new Trigger[timerProperties.keySet().size()];
+		int i = 0;
+		for(String jobName:timerProperties.keySet()){
+			//将配置文件转化
+			JobDescription jobDescription = JSON.parseObject(timerProperties.getString(jobName),JobDescription.class);
+			JobDetailFactoryBean jobDetail = new JobDetailFactoryBean();
+			//获取具体job处理类
+			QuartzJobBean job = (QuartzJobBean) this.context.getBean(jobName);
+			jobDetail.setJobClass(job.getClass());
+			Map<String, Object> detailInfo = jobDescription.getDetailInfo();
+			CommonUtil.setBeanProp(jobDetail, detailInfo);
+			jobDetail.afterPropertiesSet();
+			//创建simpleTrigger
+			SimpleTriggerFactoryBean simpleTrigger = new SimpleTriggerFactoryBean();
+			simpleTrigger.setJobDetail(jobDetail.getObject());
+			Map<String, Object> simpleTrigerDes = jobDescription.getSimpleTrigger();
+			//开始时间
+			if(simpleTrigerDes.get("startTime")!=null){
+				simpleTrigerDes.put("startTime", DateUtil.strToDate((String) simpleTrigerDes.get("startTime")));
+			}
+			else{
+				simpleTrigerDes.put("startTime",DateUtil.getNowDateShort());
+			}
+			CommonUtil.setBeanProp(simpleTrigger,simpleTrigerDes);
+			simpleTrigger.setName((String) detailInfo.get("name"));
+			simpleTrigger.setGroup((String) detailInfo.get("group"));
+			simpleTrigger.afterPropertiesSet();
+			triggers[i] = simpleTrigger.getObject();
+			i++;
+		}
+		/*
+		
+		
+		
 		//加载定时任务设置文件
 		ResourceBundle bundle = ResourceBundle.getBundle("config/simpleTimeConfig");
 		List<Trigger> trigger = new ArrayList<Trigger>();
@@ -64,9 +100,9 @@ public class InitTimerConfig implements InitializingBean,ApplicationContextAware
         Trigger[] arr = new Trigger[trigger.size()];
         for(int i = 0;i<trigger.size();i++){
         	arr[i] = (Trigger)trigger.get(i);
-        }
-        schedulerFactoryBean.setTriggers(arr);
-        schedulerFactoryBean.setConfigLocation(new ClassPathResource("config/quratz.properties"));
+        }*/
+        schedulerFactoryBean.setTriggers(triggers);
+        schedulerFactoryBean.setConfigLocation(new ClassPathResource("config/time/quratz.properties"));
         schedulerFactoryBean.afterPropertiesSet();
 		
 	}

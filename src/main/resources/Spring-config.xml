@@ -47,5 +47,5 @@
 	<!-- spring timer -->
 	<import resource="spring/timer/spring-timer.xml" />
 	<!-- quratz -->
-	<import resource="spring/timer/spring-quratz.xml" />
+	<!-- <import resource="spring/timer/spring-quratz.xml" /> -->
 </beans>

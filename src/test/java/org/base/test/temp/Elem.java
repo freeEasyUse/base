@@ -11,6 +11,20 @@ public class Elem {
 	private int from;
 	
 	private int end;
+	
+	private String vamount;
+	
+	
+
+
+
+	public String getVAMOUNT() {
+		return vamount;
+	}
+
+	public void setVAMOUNT(String vamount) {
+		this.vamount = vamount;
+	}
 
 	public int getId() {
 		return id;

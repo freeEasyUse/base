@@ -101,7 +101,9 @@ public class CommonUtil {
 				if(StringUtils.endsWithIgnoreCase(proper.getName(), p)){
 					Method m = proper.getWriteMethod();
 					try {
-						m.invoke(obj, props.get(p));
+						if(m!=null){
+							m.invoke(obj, props.get(p));
+						}
 					} catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
