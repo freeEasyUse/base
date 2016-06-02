@@ -6,11 +6,11 @@ import org.springframework.scheduling.quartz.QuartzJobBean;
 import org.springframework.stereotype.Component;
 
 
-@Component("job")
-public class Job1 extends QuartzJobBean {
+@Component("jobRun3")
+public class JobRun3 extends QuartzJobBean {
 
 	@Override
 	protected void executeInternal(JobExecutionContext context) throws JobExecutionException {
-		System.out.println("quratz begin");
+		System.out.println("============jonRun3===========");
 	}
 }

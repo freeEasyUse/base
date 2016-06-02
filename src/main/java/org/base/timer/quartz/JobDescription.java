@@ -4,11 +4,17 @@ import java.util.Map;
 
 public class JobDescription {
 
+	// jobDetail配置
 	private Map<String, Object> detailInfo;
-	
+
+	// simple触发器
 	private Map<String, Object> simpleTrigger;
-	
+
+	// cron触发器
 	private Map<String, Object> cronTrigger;
+
+	// 是否自定义触发器
+	private boolean isCustomTrigger = false;
 
 	public Map<String, Object> getDetailInfo() {
 		return detailInfo;
@@ -32,5 +38,13 @@ public class JobDescription {
 
 	public void setCronTrigger(Map<String, Object> cronTrigger) {
 		this.cronTrigger = cronTrigger;
+	}
+
+	public boolean isCustomTrigger() {
+		return isCustomTrigger;
+	}
+
+	public void setCustomTrigger(boolean isCustomTrigger) {
+		this.isCustomTrigger = isCustomTrigger;
 	}
 }
