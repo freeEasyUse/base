@@ -2,7 +2,6 @@ package org.base.webservice.server;
 
 import javax.jws.WebService;
 
-import org.springframework.stereotype.Service;
 
 /**
  * 
@@ -13,13 +12,10 @@ import org.springframework.stereotype.Service;
  * @date 2016年6月3日
  *
  */
-@Service("webServiceServer")
 @WebService
-public class WebServiceServer {
+public interface WebServiceServer {
 	
-	public String sayHello(String name){
-		return "Hello:"+name;
-	}
+	public String sayHello(String name);
 	
 /*	public static void main(String[] args) {
 		Endpoint.publish("http://localhost:9001/service/serviceHello", new WebServiceServer());

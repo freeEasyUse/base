@@ -19,7 +19,7 @@ import org.springframework.stereotype.Component;
  * @date 2016年6月3日
  *
  */
-@Component
+//@Component
 public class InitWebServiceServer implements InitializingBean,ApplicationContextAware {
 
 	private ApplicationContext content;
