@@ -12,8 +12,6 @@ public class TimerTest extends BaseTest {
 	public void start(){
 		while(true){
 		}
-		
-		
 	}
 	
 }
