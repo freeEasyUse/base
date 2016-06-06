@@ -15,3 +15,9 @@ spring aop
 工厂方法
 自定义注解
 webservice
+远程调试步骤：
+	1、在bin/startup.bat 文件中加入
+		SET CATALINA_OPTS=-server -Xdebug -Xnoagent -Djava.compiler=NONE -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=8089
+	   address端口好是自定义监控
+	   
+	2、配置Remote Java application 然后启动
