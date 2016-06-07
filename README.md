@@ -1,7 +1,7 @@
 # base
 基础web开发平台
 2016-05-06 上传基础版本
-
+spring mvc
 mongodb
 mybatis
 分布式事务
@@ -21,3 +21,6 @@ webservice
 	   address端口好是自定义监控
 	   
 	2、配置Remote Java application 然后启动
+	
+文件上传下载
+http工具类

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>文件上传/下载测试页面</title>
+<link href="../resource/bootstrap-3.3.5-dist/css/bootstrap.min.css"
+	rel="stylesheet">
+</head>
+<body>
+
+	<h1>文件上传/下载</h1>
+
+	<!-- <div class="row" style="margin-top: 20px" id="add_detail">
+		<form class="row" id="fileInput" method="post"
+			enctype="multipart/form-data">
+			<div class="form-group">
+				<label class="col-md-2 control-label text-right"><a
+					href="javascript:void(0)" onclick="alert('下载')"><u>下载</u></a></label>
+				<div class="col-md-5" style="width: 40%">
+					<div class="input-group">
+						<span class="input-group-btn"> <span
+							class="btn btn-primary btn-file" style="border: 0px"> <i
+								class="fa fa-upload"></i>
+								<input name="inputFile" type="file"/>
+						</span>
+						</span> 
+					</div>
+				</div>
+				<div class="col-md-2">
+					<input type="text" name="textValue"/>
+				</div>
+				<div class="col-md-3">
+					<button type="button" class="btn btn-info"
+						onclick="inputfile()">
+						<i class="fa fa-cloud-upload bigger-125"></i> 导入
+					</button>
+				</div>
+			</div>
+		</form>
+	</div> -->
+
+	<label class="col-md-2 control-label text-right"><input type="button" value="下载" class="btn btn-info" onclick="download()"></label>
+	<br>
+	<div class="row">
+		<div class="col-md-12">
+			<form method="post" enctype="multipart/form-data" id="fileInput">
+				<input type="file" name="file" /> <input type="button"
+					class="btn btn-info" onclick="inputfile()" value="提交">
+			</form>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="col-md-12">
+			<textarea rows="50" cols="100" id="textArea"></textarea>
+		</div>
+	</div>
+	<script type="text/javascript"
+		src="../resource/js/jquery-1.12.3.min.js"></script>
+	<script type="text/javascript" src="../resource/js/jquery-form.js"></script>
+	<script type="text/javascript">
+		//上传文件
+		inputfile = function(){
+	     	 $('#fileInput').ajaxSubmit({
+	 	           url:'/base/file/inputFile',
+	 	           cache:false,
+	 	           enctype:"multipart/form-data",
+	 	           contentType: "application/x-www-form-urlencoded; charset=utf-8",  
+	 	           type:'post',
+	 	           success: function(data) {
+	 	        	   var result = JSON.parse(data);
+	 	        	   $("#textArea").val(result.content)
+	 	           } ,
+	 	           error:function(data){
+	 	        	   var result = JSON.parse(data);
+	 	        	   bootbox.alert({message: result.msg,title:'温馨提示'});
+	 	           }
+	 	     });
+		};
+		
+		//下载文件
+		download = function(){
+			window.open('http://127.0.0.1:8088/base/download/测试下载.xls');
+		};
+		
+	</script>
+
+</body>
+</html>
