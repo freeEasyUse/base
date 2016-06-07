@@ -27,4 +27,5 @@ url中含有中文解决方案：
 	<Connector connectionTimeout="20000" port="8088" protocol="HTTP/1.1" redirectPort="8443" URIEncoding="UTF-8"/>
 	
 文件上传下载
+
 http工具类
