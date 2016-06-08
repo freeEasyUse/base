@@ -1,5 +1,6 @@
 package org.base.util.common;
 import java.beans.PropertyDescriptor;
+import java.io.StringReader;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -9,6 +10,10 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
+
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Unmarshaller;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.util.StringUtils;
@@ -110,5 +115,21 @@ public class CommonUtil {
 			}
 			
 		}
+	}
+	
+	
+	/**
+	 * 将xml文档转换为bean
+	 * @param xml
+	 * @param t
+	 * @return
+	 * @throws Exception
+	 */
+	
+	@SuppressWarnings("unchecked")
+	public static <T> T xmlToBean(String xml, T t) throws Exception{
+		JAXBContext context = JAXBContext.newInstance(t.getClass());  
+        Unmarshaller unmarshaller = context.createUnmarshaller();  
+        return (T)unmarshaller.unmarshal(new StringReader(xml));
 	}
 }
