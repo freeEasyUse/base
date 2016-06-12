@@ -5,6 +5,7 @@ import javax.xml.bind.JAXBElement;
 
 import org.base.util.common.CommonUtil;
 import org.base.webservice.CurrentWeather;
+import org.base.webservice.ReturnCitys;
 import org.base.webservice.WebServiceClientFactory;
 import org.base.webservice.cxf.client.weather.GlobalWeatherSoap;
 import org.base.webservice.cxf.client.weather.ObjectFactory;
@@ -25,12 +26,14 @@ public class CXFClientTest extends BaseTest {
 	@Test
 	public void testWeather() throws Exception{
 		GlobalWeatherSoap soap = (GlobalWeatherSoap)WebServiceClientFactory.getWebServiceClient("http://www.webservicex.net/globalweather.asmx", GlobalWeatherSoap.class);
-		//String countryCities = soap.getCitiesByCountry("china");
-		String weatherxml = soap.getWeather("ShangHai", "China");
-		//String head = "<COUNTRY xmlns=\"http:\\www.w3dchools.com\">";
-		//weatherxml = head+"\r\n"+weatherxml;
+		String countryCities = soap.getCitiesByCountry("china");
+		ReturnCitys returnCitys = new ReturnCitys();
+		returnCitys = CommonUtil.xmlToBean(countryCities, returnCitys);
+		System.out.println(returnCitys);
+		
+		/*String weatherxml = soap.getWeather("ShangHai", "China");
 		CurrentWeather weatherInfo = new CurrentWeather();
 		weatherInfo = CommonUtil.xmlToBean(weatherxml, weatherInfo);
-		System.out.println(weatherInfo);
+		System.out.println(weatherInfo);*/
 	}
 }

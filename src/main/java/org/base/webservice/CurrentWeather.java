@@ -2,39 +2,50 @@ package org.base.webservice;
 
 import java.util.Date;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 
-
+/**
+ * 
+ * <p>Title:CurrentWeather</p>
+ * <p>description:返回天气信息xml转换类</p>
+ * <p>company:</p>
+ * @author gel
+ * @date 2016年6月12日
+ *
+ */
 @XmlRootElement(name="CurrentWeather")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class CurrentWeather {
 
-	@XmlElement
+	@XmlElement(name="Location")
 	private String location;	//位置
 		
-	@XmlElement
+	@XmlElement(name="Time",type=Date.class)
 	private Date time;			//时间
 	
-	@XmlElement
+	@XmlElement(name="Wind")
 	private String wind;		//风力
 	
-	@XmlElement
+	@XmlElement(name="Visibility")
 	private String visibility;	//能见度
 	
-	@XmlElement
+	@XmlElement(name="Temperature")
 	private String temperature;	//温度
 	
-	@XmlElement
+	@XmlElement(name="DewPoint")
 	private String dewPoint;		//露点
 	
-	@XmlElement
+	@XmlElement(name="RelativeHumidity")
 	private String relativeHumidity;	//湿度
 	
-	@XmlElement
+	@XmlElement(name="Pressure")
 	private String pressure;		//大气压
 	
-	@XmlElement
+	@XmlElement(name="Status")
 	private String status;		//状态
 
 	public String getLocation() {

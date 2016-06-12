@@ -30,6 +30,6 @@ url中含有中文解决方案：
 
 
 
-xml bean之间的转换
+xml bean之间的转换 	JAXB技术
 邮件发送
 http工具类
