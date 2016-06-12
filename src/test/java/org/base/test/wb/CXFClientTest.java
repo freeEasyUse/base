@@ -31,9 +31,9 @@ public class CXFClientTest extends BaseTest {
 		returnCitys = CommonUtil.xmlToBean(countryCities, returnCitys);
 		System.out.println(returnCitys);
 		
-		/*String weatherxml = soap.getWeather("ShangHai", "China");
+		String weatherxml = soap.getWeather("ShangHai", "China");
 		CurrentWeather weatherInfo = new CurrentWeather();
 		weatherInfo = CommonUtil.xmlToBean(weatherxml, weatherInfo);
-		System.out.println(weatherInfo);*/
+		System.out.println(weatherInfo);
 	}
 }

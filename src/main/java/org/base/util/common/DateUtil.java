@@ -180,6 +180,18 @@ public class DateUtil {
     }
 
     /**
+     * 根据指定时间格式转换时间字符串
+     * @param strDate
+     * @param dateFormat
+     * @return
+     */
+    public static Date strToDate(String strDate,String dateFormat){
+    	SimpleDateFormat formatter = new SimpleDateFormat(dateFormat);
+    	ParsePosition pos = new ParsePosition(0);
+        Date date = formatter.parse(strDate, pos);
+    	return date;
+    }
+    /**
      * 比较开始时间和结束时间大小
      * 
      * @param beginDate

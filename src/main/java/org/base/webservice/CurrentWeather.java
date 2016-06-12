@@ -6,6 +6,9 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import org.base.webservice.cxf.client.weather.DateConvent;
 
 
 /**
@@ -24,7 +27,8 @@ public class CurrentWeather {
 	@XmlElement(name="Location")
 	private String location;	//位置
 		
-	@XmlElement(name="Time",type=Date.class)
+	@XmlElement(name="Time")
+	@XmlJavaTypeAdapter(value=DateConvent.class) 
 	private Date time;			//时间
 	
 	@XmlElement(name="Wind")
