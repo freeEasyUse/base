@@ -31,5 +31,7 @@ url中含有中文解决方案：
 
 
 xml bean之间的转换 	JAXB技术   参考文档 http://blog.sina.com.cn/s/blog_6fda308501013w2a.html
-邮件发送
+
+邮件发送 http://commons.apache.org/proper/commons-email/userguide.html
+
 http工具类
