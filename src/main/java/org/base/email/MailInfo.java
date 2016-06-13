@@ -2,6 +2,7 @@ package org.base.email;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.commons.mail.EmailAttachment;
 
@@ -25,6 +26,10 @@ public class MailInfo implements Serializable {
 	private String subject;		//主题
 	
 	private EmailAttachment emailAttachment;	//附件
+	
+	private EmailType emailType;	//邮件类型
+	
+	private Map<String, Object> htmlMap;	//html类型邮件内容
 
 	public String getContent() {
 		return content;
@@ -56,6 +61,22 @@ public class MailInfo implements Serializable {
 
 	public void setEmailAttachment(EmailAttachment emailAttachment) {
 		this.emailAttachment = emailAttachment;
+	}
+
+	public EmailType getEmailType() {
+		return emailType;
+	}
+
+	public void setEmailType(EmailType emailType) {
+		this.emailType = emailType;
+	}
+
+	public Map<String, Object> getHtmlMap() {
+		return htmlMap;
+	}
+
+	public void setHtmlMap(Map<String, Object> htmlMap) {
+		this.htmlMap = htmlMap;
 	}
 	
 	
