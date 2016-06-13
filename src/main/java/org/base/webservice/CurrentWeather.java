@@ -51,6 +51,9 @@ public class CurrentWeather {
 	
 	@XmlElement(name="Status")
 	private String status;		//状态
+	
+	@XmlElement(name = "SkyConditions")
+	private String skyConditions;	//天气情况
 
 	public String getLocation() {
 		return location;
@@ -123,4 +126,14 @@ public class CurrentWeather {
 	public void setStatus(String status) {
 		this.status = status;
 	}
+
+	public String getSkyConditions() {
+		return skyConditions;
+	}
+
+	public void setSkyConditions(String skyConditions) {
+		this.skyConditions = skyConditions;
+	}
+	
+	
 }
