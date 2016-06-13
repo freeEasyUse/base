@@ -9,7 +9,7 @@
 	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd">
 	<bean id="myjob"
 		class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
-		<property name="jobClass" value="org.base.timer.quartz.Job1" />
+		<property name="jobClass" value="org.base.timer.quartz.JobRun" />
 		<property name="durability" value="true" />
 		<property name="group" value="myjob" />
 	</bean>
@@ -28,11 +28,11 @@
 		</property>
 		<!--每60s启动一次 -->
 		<property name="repeatInterval">
-			<value>60000</value>
+			<value>80000</value>
 		</property>
 		<!--重复一次 -->
 		<property name="repeatCount">
-			<value>2</value>
+			<value>4</value>
 		</property>
 	</bean>
 
@@ -47,7 +47,7 @@
 				<ref bean="simpleTriggerBean" />
 			</list>
 		</property>
-		<property name="configLocation" value="classpath:config/quratz.properties" />
+		<property name="configLocation" value="classpath:config/time/quratz.properties" />
 	</bean>
 	<!-- <bean name="quartzScheduler" class="org.springframework.scheduling.quartz.SchedulerFactoryBean"> 
 		<property name="dataSource"> <ref bean="quartzDataSource" /> </property> 
