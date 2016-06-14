@@ -3,9 +3,13 @@ package org.base.util.common;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.quartz.Scheduler;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
+import org.springframework.scheduling.quartz.SchedulerFactoryBean;
 import org.springframework.stereotype.Component;
+import org.springframework.util.StringUtils;
+
 
 /**
  * 
@@ -26,6 +30,13 @@ public class BeanProcess implements BeanPostProcessor {
 	@Override
 	public Object postProcessAfterInitialization(Object bean, String name) throws BeansException {
 		objsa.add(bean);
+		/*if(StringUtils.endsWithIgnoreCase(name, "springJobSchedulerFactoryBean")){
+			SchedulerFactoryBean scheduler = (SchedulerFactoryBean)bean;
+			Scheduler schedu = scheduler.getObject();
+			System.out.println(schedu);
+		}*/
+		
+		
 		return bean;
 	}
 
