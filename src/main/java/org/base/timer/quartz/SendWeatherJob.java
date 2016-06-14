@@ -8,6 +8,8 @@ import org.base.email.MailInfo;
 import org.base.util.common.CommonUtil;
 import org.base.webservice.CurrentWeather;
 import org.base.webservice.WebServiceClientFactory;
+import org.base.webservice.cxf.client.cnweather.ArrayOfString;
+import org.base.webservice.cxf.client.cnweather.WeatherWSSoap;
 import org.base.webservice.cxf.client.weather.GlobalWeatherSoap;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
