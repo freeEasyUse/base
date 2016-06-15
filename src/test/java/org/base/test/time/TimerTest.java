@@ -3,10 +3,14 @@ package org.base.test.time;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.base.timer.BaseTimer;
 import org.base.timer.quartz.service.DealTimeJobService;
+import org.base.util.common.SpringContextUtil;
+import org.base.web.controller.FileController;
 import org.junit.Test;
 import org.quartz.DateBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 
 import base.BaseTest;
 
@@ -55,5 +59,11 @@ public class TimerTest extends BaseTest {
 		while (true) {
 
 		}
+	}
+	
+	@Test
+	public void applicationTest(){
+		ApplicationContext context = SpringContextUtil.getApplicationContext();
+		BaseTimer baseTimer = context.getBean(BaseTimer.class);
 	}
 }
