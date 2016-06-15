@@ -40,7 +40,7 @@ public interface DealTimeJobService {
 	 * @param condition
 	 * @return
 	 */
-	public boolean updateJobTrriger(Map<String, Object> condition);
+	public boolean updateJobTrriger(Map<String, Object> condition,String name,String group);
 	
 	public boolean removeAllJob();
 }

@@ -1,5 +1,6 @@
 package org.base.timer;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
@@ -14,10 +15,9 @@ import org.springframework.stereotype.Component;
  * @date 2016年5月27日
  *
  */
-//@Component
+@Component
 public class BaseTimer {
-
-	//@Scheduled(cron = "0/1 * * * * ? ")
+	@Scheduled(cron = "0/1 * * * * ? ")
 	public void syaHelloTime(){
 		System.out.println("=================使用@Scheduled注解 每一秒说一次hello=============");
 	}
