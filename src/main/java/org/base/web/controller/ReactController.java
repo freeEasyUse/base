@@ -58,6 +58,12 @@ public class ReactController extends BaseController {
 		returnSuccess(response, result);
 	}
 	
+	@RequestMapping("/ajax")
+	public void ajaxTest(HttpServletResponse response){
+		Map<String, Object> result = new HashMap<String, Object>();
+		result.put("data", "this is data");
+		returnSuccess(response, result);
+	}
 	
 	
 }

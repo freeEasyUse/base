@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>show life cycle</title>
+</head>
+<body>
+	<div id="container"></div>
+
+	<script src="js/lib/react.js"></script>
+	<script src="js/lib/react-dom.js"></script>
+	<script src="js/lib/browser.min.js"></script>
+	<script type="text/javascript"
+		src="../resource/js/jquery-1.12.3.min.js"></script>
+
+	<script type="text/babel">
+		var Hello = React.createClass({
+			getInitialState:function(){
+				return {opration:1};
+			},
+			
+			componentDidMount:function(){
+				this.timer = setInterval(function(){
+					console.log('test')
+					console.log(this.state.opration);
+					var op = this.state.opration;
+					op = op-0.5;
+					if(op<0.1){
+						op = 1;
+					}
+					this.setState({
+        				opration: op
+      					});
+				}.bind(this),100);
+			},
+			render:function(){
+				return (
+					    <div style={{opration: this.state.opration}}>
+        				Hello {this.props.name},Hello {this.state.opration}
+      					</div>
+				);
+			}
+
+		});
+			
+
+		ReactDOM.render(<Hello name="hello"/>,$("#container").get(0));
+
+	</script>
+</body>
+</html>

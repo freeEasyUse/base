@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>show life cycle</title>
+</head>
+<body>
+	<div id="container"></div>
+
+	<script src="js/lib/react.js"></script>
+	<script src="js/lib/react-dom.js"></script>
+	<script src="js/lib/browser.min.js"></script>
+	<script type="text/javascript"
+		src="../resource/js/jquery-1.12.3.min.js"></script>
+
+	<script type="text/babel">
+		var AjaxComment = React.createClass(
+			{
+				getInitialState:function(){
+					return {data:""};
+				},
+				
+				componentDidMount:function(){
+					$.ajax({
+		      			url: this.props.url,
+		      			dataType: 'json',
+		      			type: 'POST',
+		      			success: function(data) {
+		    				var r = $.parseJSON(data);
+			    			this.setState({data: r.data});
+		      			}.bind(this),
+		      			error: function(xhr, status, err) {
+		        			console.error(this.props.addUrl, status, err.toString());
+		      			}.bind(this)
+		    		});					
+				},
+
+				render:function(){
+					return (<p>{this.state.data}</p>)
+				}
+			}
+		);		
+
+
+
+		ReactDOM.render(<AjaxComment url="/base/react/ajax"/>,$("#container").get(0));
+
+	</script>
+</body>
+</html>
