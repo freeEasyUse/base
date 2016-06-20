@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>show get dom</title>
+</head>
+<body>
+	<div id="container"></div>
+
+	<script src="js/lib/react.js"></script>
+	<script src="js/lib/react-dom.js"></script>
+	<script src="js/lib/browser.min.js"></script>
+	<script type="text/javascript"
+		src="../resource/js/jquery-1.12.3.min.js"></script>
+
+	<script type="text/babel">
+		var ShowDom = React.createClass({
+			clickButton:function(){
+				this.refs.text.focus();
+				$(this.refs.text).val('fasd');
+				console.log('clis');
+			},
+
+			render:function(){
+				return (
+					<div>
+						<input type='text' ref='text'></input>
+						<input type='button' onClick = {this.clickButton} value='this is button'/>
+					</div>
+				);
+			}
+		});
+
+
+		ReactDOM.render(<ShowDom></ShowDom>,$("#container").get(0));
+	</script>
+</body>
+</html>

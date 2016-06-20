@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>show get children</title>
+</head>
+<body>
+	<div id="container"></div>
+
+	<script src="js/lib/react.js"></script>
+	<script src="js/lib/react-dom.js"></script>
+	<script src="js/lib/browser.min.js"></script>
+	<script type="text/javascript"
+		src="../resource/js/jquery-1.12.3.min.js"></script>
+
+	<!-- 验证属性 -->
+	<script type="text/babel">
+		var MyTitle = React.createClass({
+			 propTypes:{
+				title:React.PropTypes.string.isRequired,
+				data:React.PropTypes.number.isRequired,
+			 },
+
+			render:function(){
+				return (
+						<div>
+						<h1>{this.props.title}</h1>
+						<h2>{this.props.data}</h2>
+						</div>
+						);
+			}
+		});
+
+		var t = 'this is string';
+		
+		ReactDOM.render(<MyTitle title={t} data={12}></MyTitle>,$("#container").get(0));
+	</script>
+</body>
+</html>

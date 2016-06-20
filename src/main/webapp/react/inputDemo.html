@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>show get children</title>
+</head>
+<body>
+	<div id="container"></div>
+
+	<script src="js/lib/react.js"></script>
+	<script src="js/lib/react-dom.js"></script>
+	<script src="js/lib/browser.min.js"></script>
+	<script type="text/javascript"
+		src="../resource/js/jquery-1.12.3.min.js"></script>
+
+	<script type="text/babel">
+		
+		var Input = React.createClass({
+			getInitialState:function(){
+				return {value:"this is init value"};
+			},
+			
+			handleChange:function(event){
+				this.setState({value:event.target.value});
+				var r = $(this.refs.input).val();
+				console.log(r);
+			},
+
+			render:function(){
+				var value = this.state.value;
+				return (
+					<div>
+						<input type="text" value={value} onChange={this.handleChange} ref="input"/>
+						<p>{value}</p>
+					</div>
+				);
+			}
+		
+		});
+		
+		ReactDOM.render(<Input/>,$("#container").get(0));
+	</script>
+</body>
+</html>

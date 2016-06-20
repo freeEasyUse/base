@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>show get children</title>
+</head>
+<body>
+
+	<div id="container2"></div>
+	<script src="js/lib/react.js"></script>
+	<script src="js/lib/react-dom.js"></script>
+	<script src="js/lib/browser.min.js"></script>
+	<script type="text/javascript"
+		src="../resource/js/jquery-1.12.3.min.js"></script>
+
+	<!-- 设置属性默认值 -->
+	<script type="text/babel">
+		var MyTitel2 = React.createClass({
+					
+  		getDefaultProps: function() {
+    		return {
+      			title: 'go'
+    		};
+  		},
+			render:function(){
+				return <h1>{this.props.title}</h1>;
+			}
+		});
+	
+		ReactDOM.render(<MyTitel2/>,$("#container2").get(0));	
+
+	</script>
+
+
+</body>
+</html>

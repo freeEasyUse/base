@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>show get children</title>
+</head>
+<body>
+	<div id="container"></div>
+
+	<script src="js/lib/react.js"></script>
+	<script src="js/lib/react-dom.js"></script>
+	<script src="js/lib/browser.min.js"></script>
+	<script type="text/javascript"
+		src="../resource/js/jquery-1.12.3.min.js"></script>
+
+	<script type="text/babel">
+		var NodeList = React.createClass({
+			render:function(){
+			 return (
+				      <ul>
+      					{
+       					 	React.Children.map(this.props.children, function (child) {
+          					return <li>{child}</li>;
+        					})
+      						}
+      				  </ul>
+				);
+			}
+		});
+		
+
+		ReactDOM.render(
+			<NodeList>
+				<span>hello</span>
+    			<span>world</span>
+			</NodeList>,
+			$("#container").get(0)
+		);
+		
+	</script>
+</body>
+</html>

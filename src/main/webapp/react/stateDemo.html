@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>show get children</title>
+</head>
+<body>
+	<div id="container"></div>
+
+	<script src="js/lib/react.js"></script>
+	<script src="js/lib/react-dom.js"></script>
+	<script src="js/lib/browser.min.js"></script>
+	<script type="text/javascript"
+		src="../resource/js/jquery-1.12.3.min.js"></script>
+
+	<script type="text/babel">
+		var ButtonComment = React.createClass({
+			getInitialState:function(){
+				return {like:true};
+			},
+			deal:function(){
+				this.setState({like:!this.state.like});
+			},
+			render:function(){
+				var text = this.state.like?"good":"bad";
+				return (
+					<div>
+						<input type="button" onClick = {this.deal} value="button"/>
+						<p>{text}</p>
+					</div>
+				);
+			}
+		});		
+
+		ReactDOM.render(<ButtonComment/>,$("#container").get(0));
+	</script>
+</body>
+</html>
