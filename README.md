@@ -53,3 +53,6 @@ xml bean之间的转换 	JAXB技术   参考文档 http://blog.sina.com.cn/s/blo
 
 
 http工具类
+
+
+树型菜单 http://www.htmleaf.com/jQuery/Menu-Navigation/201502141379.html
