@@ -5,6 +5,11 @@ import java.util.Map;
 
 public class Comment extends BaseVo {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	private String author;
 	
 	private String text;
