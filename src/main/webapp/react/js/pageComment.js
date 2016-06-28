@@ -6,38 +6,44 @@
 var PageComment = React.createClass({
 	
 	pageClick:function(e,originalEvent,type,page){
-		console.log('onPageClicked');
-		console.log(this.state);
     	var pageInfo = new Object();
-    	pageInfo.pageIndex = page;
-    	pageInfo.rowCount = 10;
+    	pageInfo.currentPage = page;
+    	pageInfo.rowCount = this.props.rowCount;
+    	pageInfo.searchConditon = this.props.searchConditon;
+    	console.log(pageInfo);
     	this.setState(pageInfo);
+    	console.log("json");
+    	console.log(JSON.stringify(this.state));
 	},
 	
 	
 	getInitialState:function(){
+		console.log(this.props.searchConditon);
 		var pageInfo = new Object();
 		pageInfo.rowCount = this.props.rowCount;
-		pageInfo.pageIndex = 1;
+		pageInfo.currentPage = 1;
+		pageInfo.searchConditon = this.props.searchConditon;
+		console.log(pageInfo);
 		return pageInfo;
 	},
 	
 	render:function(){
+		console.log("render");
 		$.ajax({
   			url: this.props.url,
   			dataType: 'json',
+  			contentType : "application/json",
   			type: 'POST',
-  			data: this.state,
+  			data: JSON.stringify(this.state),
   			success: function(data) {
+  				console.log(data);
 				var r = $.parseJSON(data);
 				var pageOption = r.result;
-				console.log(pageOption);
-				
 				var options = {
 						bootstrapMajorVersion:3,
-						currentPage: pageOption.pageIndex,
-						totalPages: pageOption.allCount,
-						numberOfPages:10,
+						currentPage: pageOption.currentPage,
+						totalPages: pageOption.totalPages,
+						numberOfPages:pageOption.numberOfPages,
 						size:"normal",
 			            alignment:"center",
 			        	itemTexts:function (type, page, current) {
@@ -69,5 +75,7 @@ var PageComment = React.createClass({
 });
 
 
-
-ReactDOM.render(<PageComment url = {"/base/pageInfo/getIndex"} rowCount = {10}/>,$("#pageCommon").get(0));	
+var search = new Object();
+search.name = "jonh";
+search.age = 23;
+ReactDOM.render(<PageComment url = {"/base/pageInfo/getIndex"} rowCount = {10} searchConditon={search}/>,$("#pageCommon").get(0));	

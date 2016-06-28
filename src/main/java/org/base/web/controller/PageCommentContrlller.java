@@ -7,7 +7,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.base.web.BaseController;
 import org.base.web.vo.PageInfo;
+import org.base.web.vo.PersonVo;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -27,8 +29,8 @@ public class PageCommentContrlller extends BaseController {
 
 	@RequestMapping(value="/getIndex",method = RequestMethod.POST)
 	@ResponseBody
-	public void getPageIndex(PageInfo<String> pageInfo,HttpServletResponse response){
-		pageInfo.setAllCount(100);
+	public void getPageIndex(@RequestBody PageInfo<String,PersonVo> pageInfo,HttpServletResponse response){
+		pageInfo.setTotalPages(100);
 		Map<String, Object> result = new HashMap<String, Object>();
 		result.put("result", pageInfo);
 		returnSuccess(response, result);
