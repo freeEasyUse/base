@@ -56,3 +56,16 @@ http工具类
 
 
 树型菜单 http://www.htmleaf.com/jQuery/Menu-Navigation/201502141379.html
+
+jetty 修改静态文件 热部署解决方案：
+在web.xml中添加如下servlet 将useFileMappedBuffer 值设置为false
+	<!-- 解决Jetty启动后不能修改静态文件问题 -->
+	<servlet>
+		<servlet-name>default</servlet-name>
+		<servlet-class>org.mortbay.jetty.servlet.DefaultServlet</servlet-class>
+		<init-param>
+			<param-name>useFileMappedBuffer</param-name>
+			<param-value> false </param-value>
+		</init-param>
+		<load-on-startup> 0 </load-on-startup>
+	</servlet>
