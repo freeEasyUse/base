@@ -49,7 +49,6 @@ public class FileController extends BaseController {
 		Map<String, Object> result = new HashMap<String, Object>();
 		result.put("content", content);
 		returnSuccess(response, result);
-		
 	}
 
 }
