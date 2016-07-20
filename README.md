@@ -74,3 +74,6 @@ jetty 修改静态文件 热部署解决方案：
 	
 购物车 框架 simpleCart.js
 http://www.zzbaike.com/wiki/SimpleCart(js)/%E5%AE%89%E8%A3%85%E5%8F%8A%E4%BD%BF%E7%94%A8
+
+
+jquery ajax支持二进制 文件格式  			http://api.jquery.com/jquery.ajaxtransport/
