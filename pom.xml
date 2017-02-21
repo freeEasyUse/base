@@ -401,6 +401,21 @@
 	</dependencies>
 
 
+	<repositories>
+		<repository>
+			<id>ali</id>
+			<name>alibb</name>
+			<url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+
+
 	<build>
 		<plugins>
 			<plugin>
