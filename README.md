@@ -28,7 +28,8 @@ spring aop
 
 自定义注解
 
-webservice
+webservice  
+客户端使用 wsimport -keep http://192.168.1.100:8888/WebService?wsdl"生成客户端代码 
 
 远程调试步骤：
 	1、在bin/startup.bat 文件中加入
