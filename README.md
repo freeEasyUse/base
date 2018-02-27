@@ -96,4 +96,4 @@ mybatis 配置多数据源:
  
  注意：webservice的参尽量使用json这样可以避免很多类型问题
 
-
+ httpclient 设置  https://www.cnblogs.com/chuhanlong/p/5312166.html
