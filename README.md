@@ -78,3 +78,16 @@ http://www.zzbaike.com/wiki/SimpleCart(js)/%E5%AE%89%E8%A3%85%E5%8F%8A%E4%BD%BF%
 
 
 jquery ajax支持二进制 文件格式  			http://api.jquery.com/jquery.ajaxtransport/
+
+
+
+mybatis 配置多数据源:
+ 方式1：创建两个mybatis的配置文件，多个SqlSessionFactory 这种方式不能共用mapper文件
+ 方式2：使用注解+aop实现动态数据源，更加注解切换不同的数据源 自己实现AbstractRoutingDataSource 接口
+ 参考http://blog.csdn.net/neosmith/article/details/61202084
+
+
+
+
+
+
