@@ -88,6 +88,12 @@ mybatis 配置多数据源:
 
 
 
-
+创建共用的webservice调用：
+ 1、创建一个和远程一致的接口
+ 2、创建QName 和 Url
+ 3、根据qname 和 service 创建javax.xml.ws.Service
+ 4、使用service得到远程接口的代理 进行使用
+ 
+ 注意：webservice的参尽量使用json这样可以避免很多类型问题
 
 
